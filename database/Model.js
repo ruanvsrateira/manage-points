@@ -31,6 +31,21 @@ class Aluno {
         });
 
     }
+
+    async getOneAluno(id) {
+
+        const aluno = await model.findById(id);
+
+        return aluno;
+    } 
+
+    async saveNewsEdit(idOldUser) {
+        
+        const { nome, points } = req.body;
+
+        const oldUser = await model.findByIdAndUpdate(idOldUser, { nome, points });
+
+    }
 }
 
 module.exports = new Aluno;
